@@ -84,7 +84,6 @@
     <!-- =========================================================== -->
     <!-- Configure Request Log                                       -->
     <!-- =========================================================== -->
-    <!-- 
     <Ref id="Handlers">
       <Call name="addHandler">
         <Arg>
@@ -95,18 +94,17 @@
                    logs/request.yyyy_mm_dd.log
                 </Set>
                 <Set name="filenameDateFormat">yyyy_MM_dd</Set>
-                <Set name="retainDays">90</Set>
+                <Set name="retainDays">20</Set>
                 <Set name="append">true</Set>
                 <Set name="extended">false</Set>
                 <Set name="logCookies">false</Set>
-                <Set name="LogTimeZone">UTC</Set>
+                <Set name="LogTimeZone">EST</Set>
               </New>
             </Set>
           </New>
         </Arg>
       </Call>
     </Ref>
-    -->
 
     <!-- =========================================================== -->
     <!-- extra options                                               -->
