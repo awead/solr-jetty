@@ -739,130 +739,48 @@
 
        <str name="qf">
          title_unstem_search^100000
-         subtitle_unstem_search^50000
          title_t^25000
-         subtitle_t^10000
-         title_addl_unstem_search^5000
-         title_addl_t^2500
-         title_added_entry_unstem_search^1500
-         title_added_entry_t^1250
-         subject_topic_unstem_search^1000
          subject_unstem_search^750
-         subject_topic_facet^625
          subject_t^500
-         author_unstem_search^250
-         author_addl_unstem_search^250
-         author_t^100
-         author_addl_t^50
-         subject_addl_unstem_search^250
-         subject_addl_t^50
-         title_series_unstem_search^25
-         title_series_t^10
-         isbn_t
+         id
          text
        </str>
        <str name="pf">
          title_unstem_search^1000000
-         subtitle_unstem_search^500000
          title_t^250000
-         subtitle_t^100000
-         title_addl_unstem_search^50000
-         title_addl_t^25000
-         title_added_entry_unstem_search^15000
-         title_added_entry_t^12500
-         subject_topic_unstem_search^10000
          subject_unstem_search^7500
-         subject_topic_facet^6250
          subject_t^5000
-         author_unstem_search^2500
-         author_addl_unstem_search^2500
-         author_t^1000
-         author_addl_t^500
-         subject_addl_unstem_search^2500
-         subject_addl_t^500
-         title_series_unstem_search^250
-         title_series_t^100
          text^10
-       </str>
-       <str name="author_qf">
-         author_unstem_search^200
-         author_addl_unstem_search^50
-         author_t^20
-         author_addl_t
-       </str>
-       <str name="author_pf">
-         author_unstem_search^2000
-         author_addl_unstem_search^500
-         author_t^200
-         author_addl_t^10
+         id^10
        </str>
        <str name="title_qf">
          title_unstem_search^50000
-         subtitle_unstem_search^25000
-         title_addl_unstem_search^10000
          title_t^5000
-         subtitle_t^2500
-         title_addl_t^100
-         title_added_entry_unstem_search^50
-         title_added_entry_t^10
-         title_series_unstem_search^5
-         title_series_t
        </str>
        <str name="title_pf">
          title_unstem_search^500000
-         subtitle_unstem_search^250000
-         title_addl_unstem_search^100000
          title_t^50000
-         subtitle_t^25000
-         title_addl_t^1000
-         title_added_entry_unstem_search^500
-         title_added_entry_t^100
-         title_series_t^50
-         title_series_unstem_search^10
        </str>
        <str name="subject_qf">
-         subject_topic_unstem_search^200
          subject_unstem_search^125
-         subject_topic_facet^100
          subject_t^50
-         subject_addl_unstem_search^10
-         subject_addl_t
        </str>
        <str name="subject_pf">
-         subject_topic_unstem_search^2000
          subject_unstem_search^1250
          subject_t^1000
-         subject_topic_facet^500
-         subject_addl_unstem_search^100
-         subject_addl_t^10
        </str>
 
        <int name="ps">3</int>
        <float name="tie">0.01</float>
 
-       <!-- NOT using marc_display because it is large and will slow things down for search results -->
        <str name="fl">
          id,
          score,
-         author_display,
-         author_vern_display,
          format,
-         isbn_t,
-         language_facet,
-         lc_callnum_display,
-         material_type_display,
-         published_display,
-         published_vern_display,
-         pub_date,
+         has_model_s,
+         system_create_dt,
          title_display,
-         title_vern_display,
-         subject_topic_facet,
-         subject_geo_facet,
-         subject_era_facet,
-         subtitle_display,
-         subtitle_vern_display,
-         url_fulltext_display,
-         url_suppl_display,
+         complete_facet
        </str>
 
        <str name="facet">true</str>
@@ -874,9 +792,6 @@
        <str name="facet.field">lc_b4cutter_facet</str>
        <str name="facet.field">language_facet</str>
        <str name="facet.field">pub_date</str>
-       <str name="facet.field">subject_era_facet</str>
-       <str name="facet.field">subject_geo_facet</str>
-       <str name="facet.field">subject_topic_facet</str>
 
        <str name="spellcheck">true</str>
        <str name="spellcheck.dictionary">default</str>
@@ -1034,79 +949,34 @@
       <str name="ps">3</str>
       <float name="tie">0.01</float>
 
-      <!-- for user query terms in author text box -->
-      <str name="qf_author">
-        author_unstem_search^200
-        author_addl_unstem_search^50
-        author_t^20
-        author_addl_t
-      </str>
-      <str name="pf_author">
-        author_unstem_search^2000
-        author_addl_unstem_search^500
-        author_t^200
-        author_addl_t^10
-      </str>
-
       <!-- for user query terms in title text box -->
       <str name="qf_title">
         title_unstem_search^50000
-        subtitle_unstem_search^25000
-        title_addl_unstem_search^10000
         title_t^5000
-        subtitle_t^2500
-        title_addl_t^100
-        title_added_entry_unstem_search^50
-        title_added_entry_t^10
-        title_series_unstem_search^5
-        title_series_t
       </str>
       <str name="pf_title">
         title_unstem_search^500000
-        subtitle_unstem_search^250000
-        title_addl_unstem_search^100000
         title_t^50000
-        subtitle_t^25000
-        title_addl_t^1000
-        title_added_entry_unstem_search^500
-        title_added_entry_t^100
-        title_series_t^50
-        title_series_unstem_search^10
       </str>
 
       <!-- for user query terms in subject text box -->
       <str name="qf_subject">
-        subject_topic_unstem_search^200
         subject_unstem_search^125
-        subject_topic_facet^100
         subject_t^50
-        subject_addl_unstem_search^10
-        subject_addl_t
       </str>
       <str name="pf_subject">
-        subject_topic_unstem_search^2000
         subject_unstem_search^1250
         subject_t^1000
-        subject_topic_facet^500
-        subject_addl_unstem_search^100
-        subject_addl_t^10
       </str>
-
-      <!-- for user query terms in number text box -->
-      <str name="qf_number">isbn_t</str>
 
       <!-- for user query terms in keyword text box -->
       <str name="qf_keyword">text</str>
       <str name="pf_keyword">text^10</str>
 
-      <!-- NOT using marc_display because it is large and will slow things down for search results -->
       <str name="fl">
         id,
         score,
-        author_display,
-        author_vern_display,
         format,
-        isbn_t,
         language_facet,
         lc_callnum_display,
         material_type_display,
@@ -1114,12 +984,6 @@
         published_vern_display,
         pub_date,
         title_display,
-        title_vern_display,
-        subject_topic_facet,
-        subject_geo_facet,
-        subject_era_facet,
-        subtitle_display,
-        subtitle_vern_display,
         url_fulltext_display,
         url_suppl_display,
       </str>
@@ -1133,9 +997,6 @@
       <str name="facet.field">lc_b4cutter_facet</str>
       <str name="facet.field">language_facet</str>
       <str name="facet.field">pub_date</str>
-      <str name="facet.field">subject_era_facet</str>
-      <str name="facet.field">subject_geo_facet</str>
-      <str name="facet.field">subject_topic_facet</str>
 
       <str name="spellcheck">true</str>
       <str name="spellcheck.dictionary">subject</str>
@@ -1408,13 +1269,6 @@
       <str name="name">default</str>
       <str name="field">spell</str>
       <str name="spellcheckIndexDir">./spell</str>
-      <str name="buildOnOptimize">true</str>
-    </lst>
-    <lst name="spellchecker">
-      <str name="name">author</str>
-      <str name="field">author_spell</str>
-      <str name="spellcheckIndexDir">./spell_author</str>
-      <str name="accuracy">0.7</str>
       <str name="buildOnOptimize">true</str>
     </lst>
     <lst name="spellchecker">
