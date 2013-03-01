@@ -216,9 +216,9 @@
          title_addl_t^2500
          title_added_entry_unstem_search^1500
          title_added_entry_t^1250
-         subject_topic_unstem_search^1000
+         subject_unstem_search^1000
          subject_unstem_search^750
-         subject_topic_facet^625
+         subject_facet^625
          name_facet^600
          subject_t^500
          author_unstem_search^250
@@ -242,9 +242,9 @@
          title_addl_t^25000
          title_added_entry_unstem_search^15000
          title_added_entry_t^12500
-         subject_topic_unstem_search^10000
+         subject_unstem_search^10000
          subject_unstem_search^7500
-         subject_topic_facet^6250
+         subject_facet^6250
          name_facet^6000
          subject_t^5000
          author_unstem_search^2500
@@ -298,18 +298,18 @@
          title_series_unstem_search^10
        </str>
        <str name="subject_qf">
-         subject_topic_unstem_search^200
+         subject_unstem_search^200
          subject_unstem_search^125
-         subject_topic_facet^100
+         subject_facet^100
          subject_t^50
          subject_addl_unstem_search^10
          subject_addl_t
        </str>
        <str name="subject_pf">
-         subject_topic_unstem_search^2000
+         subject_unstem_search^2000
          subject_unstem_search^1250
          subject_t^1000
-         subject_topic_facet^500
+         subject_facet^500
          subject_addl_unstem_search^100
          subject_addl_t^10
        </str>
@@ -345,7 +345,7 @@
          pub_date,
          title_display,
          title_vern_display,
-         subject_topic_facet,
+         subject_facet,
          subject_geo_facet,
          subject_era_facet,
          name_facet,
@@ -391,7 +391,7 @@
        <str name="facet.field">pub_date</str>
        <str name="facet.field">subject_era_facet</str>
        <str name="facet.field">subject_geo_facet</str>
-       <str name="facet.field">subject_topic_facet</str>
+       <str name="facet.field">subject_facet</str>
        <str name="facet.field">name_facet</str>
 
        <str name="spellcheck">true</str>
@@ -476,19 +476,19 @@
 
       <!-- for user query terms in subject text box -->
       <str name="qf_subject">
-        subject_topic_unstem_search^200
+        subject_unstem_search^200
         subject_unstem_search^125
-        subject_topic_facet^100
+        subject_facet^100
         name_facet^90
         subject_t^50
         subject_addl_unstem_search^10
         subject_addl_t
       </str>
       <str name="pf_subject">
-        subject_topic_unstem_search^2000
+        subject_unstem_search^2000
         subject_unstem_search^1250
         subject_t^1000
-        subject_topic_facet^500
+        subject_facet^500
         name_facet^400
         subject_addl_unstem_search^100
         subject_addl_t^10
@@ -522,7 +522,7 @@
         pub_date,
         title_display,
         title_vern_display,
-        subject_topic_facet,
+        subject_facet,
         subject_geo_facet,
         subject_era_facet,
         name_facet,
@@ -568,7 +568,7 @@
       <str name="facet.field">pub_date</str>
       <str name="facet.field">subject_era_facet</str>
       <str name="facet.field">subject_geo_facet</str>
-      <str name="facet.field">subject_topic_facet</str>
+      <str name="facet.field">subject_facet</str>
       <str name="facet.field">name_facet</str>
 
       <str name="spellcheck">true</str>
