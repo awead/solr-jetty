@@ -521,7 +521,8 @@
   <copyField source="subject_t"           dest="subject_unstem_search"/>
   <copyField source="subject_facet"       dest="subject_unstem_search"/>
   <copyField source="contributors_t"      dest="contributors_unstem_search"/>
-
+  <copyField source="lc_callnum_display"  dest="lc_callnum_unstem_search"/>
+  
   <!-- display fields that are copied to the text field for searching -->
   <copyField source="isbn_display"        dest="text"/>
 

@@ -319,6 +319,12 @@
        <str name="oclc_pf">
          oclc_unstem_search
        </str>
+       <str name="call_qf">
+         lc_callnum_unstem_search
+       </str> 
+       <str name="call_pf">
+         lc_callnum_unstem_search
+       </str>
 
 
        <int name="ps">3</int>
