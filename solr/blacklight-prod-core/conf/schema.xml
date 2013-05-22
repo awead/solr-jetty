@@ -470,6 +470,7 @@
     <dynamicField name="*_unstem_search" type="text_general"  indexed="true"  stored="false" multiValued="true"  />
     <dynamicField name="*spell"          type="textSpell"     indexed="true"  stored="false" multiValued="true"  />
     <dynamicField name="*_dt"            type="date"          indexed="true"  stored="true"  multiValued="false" />
+    <dynamicField name="*_dts"           type="date"          indexed="true"  stored="true"  multiValued="true"  />
     <dynamicField name="*_p"             type="location"      indexed="true"  stored="true"  multiValued="false" />
 
     <!-- Type used to index the lat and lon components for the "location" FieldType -->
