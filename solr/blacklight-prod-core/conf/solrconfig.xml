@@ -31,7 +31,7 @@
 
 <config>
 
-  <luceneMatchVersion>LUCENE_41</luceneMatchVersion>
+  <luceneMatchVersion>LUCENE_43</luceneMatchVersion>
 
   <!-- Load additional jars -->
 
@@ -1092,13 +1092,8 @@
     <str name="content-type">text/plain; charset=UTF-8</str>
   </queryResponseWriter>
 
-  <!--
-     Custom response writers can be declared as needed...
-    -->
-    <!-- The solr.velocity.enabled flag is used by Solr's test cases so that this response writer is not
-         loaded (causing an error if contrib/velocity has not been built fully) -->
-    <queryResponseWriter name="velocity" class="solr.VelocityResponseWriter" enable="${solr.velocity.enabled:true}"/>
-
+  <!-- Custom response writers can be declared as needed.. -->
+  <queryResponseWriter name="velocity" class="solr.VelocityResponseWriter" startup="lazy"/>
 
   <!-- XSLT response writer transforms the XML output by any xslt file found
        in Solr's conf/xslt directory.  Changes to xslt files are checked for
