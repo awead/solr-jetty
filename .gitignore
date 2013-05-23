@@ -4,3 +4,4 @@ logs
 .DS_Store
 solr-jetty.sublime-project
 solr-jetty.sublime-workspace
+solr-webapp/*
