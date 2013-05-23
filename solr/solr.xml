@@ -11,9 +11,11 @@
     <core name="blacklight-dev" instanceDir="blacklight-dev-core" />
     <core name="blacklight-test" instanceDir="blacklight-test-core" />
     <core name="blacklight-prod" instanceDir="blacklight-prod-core" />
+  <!--
     <core name="hydra-dev" instanceDir="hydra-dev-core" />
     <core name="hydra-test" instanceDir="hydra-test-core" />
     <core name="hydra-prod" instanceDir="hydra-prod-core" />
+  -->
   </cores>
 
 </solr>
