@@ -39,7 +39,7 @@
   <lib dir="../contrib/analysis-extras/lib" />
   <lib dir="../contrib/analysis-extras/lucene-libs" />
   <lib dir="../contrib/clustering/lib" />
-  <lib dir="../contrib/lanid/lib" />
+  <lib dir="../contrib/langid/lib" />
   <lib dir="../contrib/velocity/lib" />
 
   <!-- Data Directory
