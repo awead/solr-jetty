@@ -23,7 +23,7 @@ with three cores per app, one each for develpoment, test and production.
 Version
 =======
 
-* solr 4.1.0
+* solr 4.3.0
 * jetty 8.1.8.v20121106
 
 License
