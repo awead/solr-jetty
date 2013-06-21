@@ -930,6 +930,16 @@
     <dynamicField name="attr_*"    type="text_general" indexed="true" stored="true" multiValued="true"/>
     <dynamicField name="random_*"  type="random" />
 
+    <!-- Hydra's dynamic fields (only the ones being used) -->
+    <dynamicField name="*_teim"  type="text_en"   stored="false" indexed="true"  multiValued="true"  />
+    <dynamicField name="*_si"    type="string"    stored="false" indexed="true"  multiValued="false" />
+    <dynamicField name="*_sim"   type="string"    stored="false" indexed="true"  multiValued="true"  />
+    <dynamicField name="*_ssm"   type="string"    stored="true"  indexed="false" multiValued="true"  />
+    <dynamicField name="*_ssi"   type="string"    stored="true"  indexed="true"  multiValued="false" />
+    <dynamicField name="*_ssim"  type="string"    stored="true"  indexed="true"  multiValued="true"  />
+    <dynamicField name="*_dtsi"  type="date"      stored="true"  indexed="true"  multiValued="false" />
+    <dynamicField name="*_dtsim" type="date"      stored="true"  indexed="true"  multiValued="true"  />
+
     <!-- uncomment the following to ignore any fields that don't already match an existing
          field name or dynamic field, rather than reporting them as an error.
          alternately, change the type="ignored" to some other type e.g. "text" if you want
@@ -1003,6 +1013,22 @@
   <copyField source="subject_facet"       dest="opensearch_display" />
   <copyField source="subject_t"           dest="opensearch_display" />
 
+  <!-- Copy over all of Hydra dynamic fields to Blacklight's -->
+  <copyField source="*_dtsi"  dest="*_dt" />
+  <copyField source="*_teim"  dest="*_t"  />
+  <copyField source="*_si"    dest="*_t"  />
+  <copyField source="*_sim"   dest="*_t"  />
+  <copyField source="*_ssi"   dest="*_t"  />
+  <copyField source="*_ssim"  dest="*_t"  />
+  <copyField source="*_dtsi"  dest="*_t"  />
+  <copyField source="*_dtsim" dest="*_t"  />
+  <copyField source="*_ssm"   dest="*_display" />
+  <copyField source="*_ssi"   dest="*_display" />
+  <copyField source="*_ssim"  dest="*_display" />
+  <copyField source="*_dtsi"  dest="*_display" />
+  <copyField source="*_dtsim" dest="*_display" />
+
+             
   <!-- Above, multiple source fields are copied to the [text] field.
        Another way to map multiple source fields to the same
        destination field is to use the dynamic field syntax.
