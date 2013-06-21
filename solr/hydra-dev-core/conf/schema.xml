@@ -157,6 +157,9 @@
 
     <!-- you must define copyField source and dest fields explicity or schemaBrowser doesn't work -->
     <field name="all_text_timv" type="text" stored="false" indexed="true" multiValued="true" termVectors="true" termPositions="true" termOffsets="true"/>
+
+    <!-- Copies indexed fields to one single text field for general searching -->
+    <copyField source="*_teim" dest="all_text_timv" maxChars="3000"/>
   </fields>
 
   <types>
