@@ -155,11 +155,21 @@
     <dynamicField name="*_llsi"  type="location" stored="true"  indexed="true"  multiValued="false" />
     <dynamicField name="*_llsim" type="location" stored="true"  indexed="true"  multiValued="true"  />
 
+    <!-- Define a spellcheck field -->
+    <dynamicField name="*_spell" type="textSpell" indexed="true" stored="false" multiValued="true" />
+
     <!-- you must define copyField source and dest fields explicity or schemaBrowser doesn't work -->
     <field name="all_text_timv" type="text" stored="false" indexed="true" multiValued="true" termVectors="true" termPositions="true" termOffsets="true"/>
 
     <!-- Copies indexed fields to one single text field for general searching -->
     <copyField source="*_teim" dest="all_text_timv" maxChars="3000"/>
+
+    <!-- Copy fields to _spell field for spellchek functions -->
+    <copyField source="title_teim"             dest="title_spell" />
+    <copyField source="alternative_title_teim" dest="title_spell" />
+    <copyField source="subtitle_teim"          dest="title_spell" />
+
+    <copyField source="subject_sim" dest="subject_spell" />
   </fields>
 
   <types>
@@ -268,7 +278,20 @@
       <analyzer type="query">
         <tokenizer class="solr.PathHierarchyTokenizerFactory" delimiter="/" />
       </analyzer>
-    </fieldType>  
+    </fieldType>
+
+    <!-- Spellcheck field
+         Copied from Blacklight schema. Could be remove if any of the above TextField
+         types are similiar enough
+     -->
+    <fieldType name="textSpell" class="solr.TextField" positionIncrementGap="100" >
+      <analyzer>
+        <tokenizer class="solr.StandardTokenizerFactory"/>
+        <filter class="solr.StandardFilterFactory"/>
+        <filter class="solr.LowerCaseFilterFactory"/>
+        <filter class="solr.RemoveDuplicatesTokenFilterFactory"/>
+      </analyzer>
+    </fieldType>    
   </types>
 
 </schema>

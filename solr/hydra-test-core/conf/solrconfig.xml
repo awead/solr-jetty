@@ -148,64 +148,72 @@
   <requestHandler name="search" class="solr.SearchHandler" default="true">
     <!-- default values for query parameters can be specified, these
          will be overridden by parameters in the request
+    -->
+    <lst name="defaults">
+      <str name="defType">edismax</str>
+      <str name="echoParams">explicit</str>
+      <str name="q.alt">*:*</str>
+      <str name="mm">2&lt;-1 5&lt;-2 6&lt;90%</str>
+      <int name="qs">1</int>
+      <int name="ps">2</int>
+      <float name="tie">0.01</float>
+      
+      <!-- this qf and pf are used by default, if not otherwise specified by
+           client. The default blacklight_config will use these for the
+           "keywords" search. 
       -->
-     <lst name="defaults">
-       <str name="defType">edismax</str>
-       <str name="echoParams">explicit</str>
-       <str name="q.alt">*:*</str>
-       <str name="mm">2&lt;-1 5&lt;-2 6&lt;90%</str>
-       <int name="qs">1</int>
-       <int name="ps">2</int>
-       <float name="tie">0.01</float>
-       <!-- this qf and pf are used by default, if not otherwise specified by
-            client. The default blacklight_config will use these for the
-            "keywords" search. See the author_qf/author_pf, title_qf, etc 
-            below, which the default blacklight_config will specify for
-            those searches. You may also be interested in:
-            http://wiki.apache.org/solr/LocalParams
-       -->
-        <str name="qf">
-          id
-          all_text_timv
-          active_fedora_model_ssi
-          object_type_si
-        </str>
-        <str name="pf">
-          all_text_timv^10
-        </str>
+      <str name="qf">
+        id
+        all_text_timv
+        active_fedora_model_ssi
+        object_type_si
+      </str>
+      <str name="pf">
+        all_text_timv^10
+      </str>
 
-       <str name="author_qf">
-       </str>
-       <str name="author_pf">
-       </str>
-       <str name="title_qf">
-       </str>
-       <str name="title_pf">
-       </str>
-       <str name="subject_qf">
-       </str>
-       <str name="subject_pf">
-       </str>
+      <!-- title_qf and subject_qf for seraches of specific fields.
+           These are used in conjunction with blacklight_config.
+           See also:
+           http://wiki.apache.org/solr/LocalParams 
+      -->
+
+      <str name="title_qf">
+        title_teim^50000
+        alternative_title_teim^25000
+        subtitle_teim^10000
+      </str>
+      <str name="title_pf">
+        title_teim^500000
+        alternative_title_teim^250000
+        subtitle_teim^100000
+      </str>
+      <str name="subject_qf">
+        subject_sim^50000
+      </str>
+      <str name="subject_pf">
+        subject_sim^500000
+      </str>
        
-       <str name="fl">
-         *, 
-         score
-       </str>
+      <str name="fl">
+        *, 
+        score
+      </str>
 
-       <str name="facet">true</str>
-       <str name="facet.mincount">1</str>
-       <str name="facet.limit">10</str>
-       <str name="facet.field">active_fedora_model_ssi</str>
-       <str name="facet.field">object_type_si</str>
+      <str name="facet">true</str>
+      <str name="facet.mincount">1</str>
+      <str name="facet.limit">10</str>
+      <str name="facet.field">active_fedora_model_ssi</str>
+      <str name="facet.field">object_type_si</str>
        
-       <str name="spellcheck">true</str>
-       <str name="spellcheck.dictionary">default</str>
-       <str name="spellcheck.onlyMorePopular">true</str>
-       <str name="spellcheck.extendedResults">true</str>
-       <str name="spellcheck.collate">false</str>
-       <str name="spellcheck.count">5</str>
+      <str name="spellcheck">true</str>
+      <str name="spellcheck.dictionary">default</str>
+      <str name="spellcheck.onlyMorePopular">true</str>
+      <str name="spellcheck.extendedResults">true</str>
+      <str name="spellcheck.collate">false</str>
+      <str name="spellcheck.count">5</str>
 
-     </lst>
+    </lst>
     <arr name="last-components">
       <str>spellcheck</str>
     </arr>
@@ -274,6 +282,20 @@
       <str name="name">default</str>
       <str name="field">spell</str>
       <str name="spellcheckIndexDir">./spell</str>
+      <str name="buildOnOptimize">true</str>
+    </lst>
+        <lst name="spellchecker">
+      <str name="name">title</str>
+      <str name="field">title_spell</str>
+      <str name="spellcheckIndexDir">./spell_name</str>
+      <str name="accuracy">0.7</str>
+      <str name="buildOnOptimize">true</str>
+    </lst>
+    <lst name="spellchecker">
+      <str name="name">subject</str>
+      <str name="field">subject_spell</str>
+      <str name="spellcheckIndexDir">./spell_subject</str>
+      <str name="accuracy">0.7</str>
       <str name="buildOnOptimize">true</str>
     </lst>
   </searchComponent>
