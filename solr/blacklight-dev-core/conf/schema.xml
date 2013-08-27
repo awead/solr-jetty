@@ -1001,9 +1001,6 @@
   <!-- contributor and genre spell check -->
   <copyField source="contributors_t" dest="name_spell"  />
   <copyField source="genre_t"        dest="genre_spell" />
-  <!-- Copy read_access_group_t to a _s field -->
-  <copyField source="read_access_group_t"     dest="hydra_read_access_s"     />
-  <copyField source="discover_access_group_t" dest="hydra_discover_access_s" />
 
   <!-- OpenSearch query field should match request handler search fields -->
   <copyField source="title_t"             dest="opensearch_display" />
