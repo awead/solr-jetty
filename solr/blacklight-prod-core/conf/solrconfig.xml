@@ -190,227 +190,186 @@
   <requestHandler name="search" class="solr.SearchHandler" default="true">
     <!-- default values for query parameters can be specified, these
          will be overridden by parameters in the request
+    -->
+    <lst name="defaults">
+      <str name="defType">dismax</str>
+      <str name="echoParams">explicit</str>
+      <int name="rows">10</int>
+
+      <str name="q.alt">*:*</str>
+      <str name="mm">2&lt;-1 5&lt;-2 6&lt;90%</str>
+
+      <!-- this qf and pf are used by default, if not otherwise specified by
+           client. The default blacklight_config will use these for the
+           "keywords" search. See the author_qf/author_pf, title_qf, etc
+           below, which the default blacklight_config will specify for
+           those searches. You may also be interested in:
+           http://wiki.apache.org/solr/LocalParams
       -->
-     <lst name="defaults">
-       <str name="defType">dismax</str>
-       <str name="echoParams">explicit</str>
-       <int name="rows">10</int>
 
-       <str name="q.alt">*:*</str>
-       <str name="mm">2&lt;-1 5&lt;-2 6&lt;90%</str>
-
-       <!-- this qf and pf are used by default, if not otherwise specified by
-            client. The default blacklight_config will use these for the
-            "keywords" search. See the author_qf/author_pf, title_qf, etc
-            below, which the default blacklight_config will specify for
-            those searches. You may also be interested in:
-            http://wiki.apache.org/solr/LocalParams
-       -->
-
-       <str name="qf">
-         title_unstem_search^100000
-         subtitle_unstem_search^50000
-         title_t^25000
-         subtitle_t^10000
-         title_addl_unstem_search^5000
-         title_addl_t^2500
-         title_added_entry_unstem_search^1500
-         title_added_entry_t^1250
-         subject_unstem_search^1000
-         subject_unstem_search^750
-         subject_facet^625
-         name_facet^600
-         subject_t^500
-         author_unstem_search^250
-         author_addl_unstem_search^250
-         author_t^100
-         author_addl_t^50
-         subject_addl_unstem_search^250
-         subject_addl_t^50
-         title_series_unstem_search^25
-         title_series_t^10
-         oclc_unstem_search
-         accession_unstem_search
-         text
-       </str>
-       <str name="pf">
-         title_unstem_search^1000000
-         subtitle_unstem_search^500000
-         title_t^250000
-         subtitle_t^100000
-         title_addl_unstem_search^50000
-         title_addl_t^25000
-         title_added_entry_unstem_search^15000
-         title_added_entry_t^12500
-         subject_unstem_search^10000
-         subject_unstem_search^7500
-         subject_facet^6250
-         name_facet^6000
-         subject_t^5000
-         author_unstem_search^2500
-         author_addl_unstem_search^2500
-         author_t^1000
-         author_addl_t^500
-         subject_addl_unstem_search^2500
-         subject_addl_t^500
-         title_series_unstem_search^250
-         title_series_t^100
-         text^10
-       </str>
-       <str name="name_qf">
-         author_unstem_search^200
-         contributors_unstem_search^200
-         author_addl_unstem_search^50
-         author_t^20
-         contributors_t^20
-         author_addl_t
-       </str>
-       <str name="name_pf">
-         author_unstem_search^2000
-         contributors_unstem_search^2000
-         author_addl_unstem_search^500
-         author_t^200
-         contributors_t^200
-         author_addl_t^10
-       </str>
-       <str name="title_qf">
-         title_unstem_search^50000
-         subtitle_unstem_search^25000
-         title_addl_unstem_search^10000
-         title_t^5000
-         subtitle_t^2500
-         title_addl_t^100
-         title_added_entry_unstem_search^50
-         title_added_entry_t^10
-         title_series_unstem_search^5
-         title_series_t
-       </str>
-       <str name="title_pf">
-         title_unstem_search^500000
-         subtitle_unstem_search^250000
-         title_addl_unstem_search^100000
-         title_t^50000
-         subtitle_t^25000
-         title_addl_t^1000
-         title_added_entry_unstem_search^500
-         title_added_entry_t^100
-         title_series_t^50
-         title_series_unstem_search^10
-       </str>
-       <str name="subject_qf">
-         subject_unstem_search^200
-         subject_unstem_search^125
-         subject_facet^100
-         subject_t^50
-         subject_addl_unstem_search^10
-         subject_addl_t
-       </str>
-       <str name="subject_pf">
-         subject_unstem_search^2000
-         subject_unstem_search^1250
-         subject_t^1000
-         subject_facet^500
-         subject_addl_unstem_search^100
-         subject_addl_t^10
-       </str>
-       <str name="oclc_qf">
-         oclc_unstem_search
-       </str>
-       <str name="oclc_pf">
-         oclc_unstem_search
-       </str>
-       <str name="call_qf">
-         lc_callnum_unstem_search
-       </str> 
-       <str name="call_pf">
-         lc_callnum_unstem_search
-       </str>
+      <str name="qf">
+        title_tim^100000
+        title_teim^25000
+        title_addl_tim^5000
+        title_addl_teim^2500
+        subject_tim^1000
+        subject_tim^750
+        subject_sim^625
+        name_sim^600
+        subject_teim^500
+        author_tim^250
+        author_teim^100
+        oclc_tim
+        accession_tim
+        id
+        text
+      </str>
+      <str name="pf">
+        title_tim^1000000
+        title_teim^250000
+        title_addl_tim^50000
+        title_addl_teim^25000
+        subject_tim^10000
+        subject_tim^7500
+        subject_sim^6250
+        name_sim^6000
+        subject_teim^5000
+        author_tim^2500
+        author_teim^1000
+        text^10
+      </str>
+      <str name="name_qf">
+        author_tim^200
+        contributors_tim^200
+        author_teim^20
+        contributors_teim^20
+      </str>
+      <str name="name_pf">
+        author_tim^2000
+        contributors_tim^2000
+        author_teim^200
+        contributors_teim^200
+      </str>
+      <str name="title_qf">
+        title_tim^50000
+        title_addl_tim^10000
+        title_teim^5000
+        title_addl_teim^100
+      </str>
+      <str name="title_pf">
+        title_tim^500000
+        title_addl_tim^100000
+        title_teim^50000
+        title_addl_teim^1000
+      </str>
+      <str name="subject_qf">
+        subject_tim^200
+        subject_tim^125
+        subject_sim^100
+        subject_teim^50
+      </str>
+      <str name="subject_pf">
+        subject_tim^2000
+        subject_tim^1250
+        subject_teim^1000
+        subject_sim^500
+      </str>
+      <str name="oclc_qf">
+        oclc_tim
+      </str>
+      <str name="oclc_pf">
+        oclc_tim
+      </str>
+      <str name="call_qf">
+        lc_callnum_tim
+      </str> 
+      <str name="call_pf">
+        lc_callnum_tim
+      </str>
 
 
-       <int name="ps">3</int>
-       <float name="tie">0.01</float>
+      <int name="ps">3</int>
+      <float name="tie">0.01</float>
 
-       <!-- NOT using marc_display because it is large and will slow things down for search results -->
-       <str name="fl">
-         id,
-         score,
-         author_display,
-         author_vern_display,
-         format,
-         ohlink_url_display,
-         ohlink_text_display,
-         resource_url_display,
-         resource_text_display,
-         isbn_display,
-         innovative_display,
-         language_facet,
-         lc_callnum_display,
-         material_type_display,
-         published_display,
-         published_vern_display,
-         pub_date,
-         title_display,
-         title_vern_display,
-         subject_facet,
-         subject_geo_facet,
-         subject_era_facet,
-         name_facet,
-         subtitle_display,
-         subtitle_vern_display,
-         url_fulltext_display,
-         url_suppl_display,
-         parent_unittitles_display,
-         heading_display,
-         unitdate_display,
-         collection_facet,
-         location_display,
-         accessrestrict_display,
-         accruals_display,
-         acqinfo_display,
-         altformavail_display,
-         appraisal_display,
-         arrangement_display,
-         custodhist_display,
-         fileplan_display,
-         originalsloc_display,
-         phystech_display,
-         processinfo_display,
-         relatedmaterial_display,
-         separatedmaterial_display,
-         scopecontent_display,
-         userestrict_display,
-         physdesc_display,
-         dimensions_display,
-         langmaterial_display,
-         note_display,
-         accession_display
-       </str>
+      <!-- NOT using marc_ssm because it is large and will slow things down for search results -->
+      <str name="fl">
+        id,
+        score,
+        accession_ssm,
+        accessrestrict_ssm,
+        accruals_ssm,
+        acqinfo_ssm,
+        altformavail_ssm,
+        appraisal_ssm,
+        arrangement_ssm,
+        author_ssm,
+        collection_ssm,
+        custodhist_ssm,
+        dimensions_ssm,
+        ead_ssi,
+        fileplan_ssm,
+        format_ssm,
+        heading_ssm,
+        innovative_ssm,
+        isbn_ssm,
+        langmaterial_ssm,
+        language_ssm,
+        lc_callnum_ssm,
+        location_ssm,
+        material_ssm,
+        name_ssm,
+        note_ssm,
+        oclc_ssm,
+        ohlink_text_ssm,
+        ohlink_url_ssm,
+        originalsloc_ssm,
+        parent_ssi,
+        parent_unittitles_ssm,
+        physdesc_ssm,
+        phystech_ssm,
+        processinfo_ssm,
+        pub_ssm,
+        publisher_ssm,
+        ref_ssi,
+        relatedmaterial_ssm,
+        resource_text_ssm,
+        resource_url_ssm,
+        scopecontent_ssm,
+        separatedmaterial_ssm,
+        shelf_ssm
+        subject_ssm,
+        title_ssm,
+        unitdate_ssm,
+        url_fulltext_ssm,
+        url_suppl_ssm,
+        userestrict_ssm,
+      </str>
 
-       <str name="facet">true</str>
-       <str name="facet.mincount">1</str>
-       <str name="facet.limit">10</str>
-       <str name="facet.field">format</str>
-       <str name="facet.field">lc_1letter_facet</str>
-       <str name="facet.field">lc_alpha_facet</str>
-       <str name="facet.field">lc_b4cutter_facet</str>
-       <str name="facet.field">language_facet</str>
-       <str name="facet.field">pub_date</str>
-       <str name="facet.field">subject_era_facet</str>
-       <str name="facet.field">subject_geo_facet</str>
-       <str name="facet.field">subject_facet</str>
-       <str name="facet.field">name_facet</str>
+      <str name="facet">true</str>
+      <str name="facet.mincount">1</str>
+      <str name="facet.limit">10</str>
+      <str name="facet.field">format_sim</str>
+      <str name="facet.field">language_sim</str>
+      <str name="facet.field">pub_sim</str>
+      <str name="facet.field">subject_sim</str>
+      <str name="facet.field">genre_sim</str>
+      <str name="facet.field">name_sim</str>
+      <str name="facet.field">contributors_sim</str>
+      <str name="facet.field">collection_sim</str>
+      <str name="facet.field">series_sim</str>
+      <str name="facet.field">pub_date_sim</str>
 
-       <str name="spellcheck">true</str>
-       <str name="spellcheck.dictionary">default</str>
-       <str name="spellcheck.onlyMorePopular">true</str>
-       <str name="spellcheck.extendedResults">true</str>
-       <str name="spellcheck.collate">false</str>
-       <str name="spellcheck.count">5</str>
+      <str name="spellcheck">true</str>
+      <str name="spellcheck.dictionary">default</str>
+      <str name="spellcheck.onlyMorePopular">true</str>
+      <str name="spellcheck.extendedResults">true</str>
+      <str name="spellcheck.collate">false</str>
+      <str name="spellcheck.count">5</str>
 
-     </lst>
+    </lst>
 
     <!-- Supress EAD non-item-level components -->
-    <lst name="appends"><str name="fq">-component_children_b:[TRUE TO *]</str></lst>
+    <lst name="appends"><str name="fq">-component_children_bsi:[TRUE TO *]</str></lst>
 
     <arr name="last-components">
       <str>spellcheck</str>
@@ -430,7 +389,7 @@
     <lst name="defaults">
       <str name="defType">lucene</str>
       <str name="echoParams">explicit</str>
-      <str name="sort">score desc, pub_date_sort desc, title_sort asc</str>
+      <str name="sort">score desc, pub_date_si desc, title_si asc</str>
       <str name="df">text</str>
       <str name="q.op">AND</str>
       <str name="qs">1</str>
@@ -442,62 +401,42 @@
 
       <!-- for user query terms in author text box -->
       <str name="qf_author">
-        author_unstem_search^200
-        author_addl_unstem_search^50
-        author_t^20
-        author_addl_t
+        author_tim^200
+        author_teim^20
       </str>
       <str name="pf_author">
-        author_unstem_search^2000
-        author_addl_unstem_search^500
-        author_t^200
-        author_addl_t^10
+        author_tim^2000
+        author_teim^200
       </str>
 
       <!-- for user query terms in title text box -->
       <str name="qf_title">
-        title_unstem_search^50000
-        subtitle_unstem_search^25000
-        title_addl_unstem_search^10000
-        title_t^5000
-        subtitle_t^2500
-        title_addl_t^100
-        title_added_entry_unstem_search^50
-        title_added_entry_t^10
-        title_series_unstem_search^5
-        title_series_t
+        title_tim^50000
+        title_addl_tim^10000
+        title_teim^5000
+        title_addl_teim^100
       </str>
       <str name="pf_title">
-        title_unstem_search^500000
-        subtitle_unstem_search^250000
-        title_addl_unstem_search^100000
-        title_t^50000
-        subtitle_t^25000
-        title_addl_t^1000
-        title_added_entry_unstem_search^500
-        title_added_entry_t^100
-        title_series_t^50
-        title_series_unstem_search^10
+        title_tim^500000
+        title_addl_tim^100000
+        title_teim^50000
+        title_addl_teim^1000
       </str>
 
       <!-- for user query terms in subject text box -->
       <str name="qf_subject">
-        subject_unstem_search^200
-        subject_unstem_search^125
-        subject_facet^100
-        name_facet^90
-        subject_t^50
-        subject_addl_unstem_search^10
-        subject_addl_t
+        subject_tim^200
+        subject_tim^125
+        subject_sim^100
+        name_sim^90
+        subject_teim^50
       </str>
       <str name="pf_subject">
-        subject_unstem_search^2000
-        subject_unstem_search^1250
-        subject_t^1000
-        subject_facet^500
-        name_facet^400
-        subject_addl_unstem_search^100
-        subject_addl_t^10
+        subject_tim^2000
+        subject_tim^1250
+        subject_teim^1000
+        subject_sim^500
+        name_sim^400
       </str>
 
       <!-- for user query terms in number text box -->
@@ -507,75 +446,73 @@
       <str name="qf_keyword">text</str>
       <str name="pf_keyword">text^10</str>
 
-      <!-- NOT using marc_display because it is large and will slow things down for search results -->
+      <!-- NOT using marc_ssm because it is large and will slow things down for search results -->
       <str name="fl">
         id,
         score,
-        author_display,
-        author_vern_display,
-        format,
-        ohlink_url_display,
-        ohlink_text_display,
-        resource_url_display,
-        resource_text_display,
-        isbn_display,
-        innovative_display,
-        language_facet,
-        lc_callnum_display,
-        material_type_display,
-        published_display,
-        published_vern_display,
-        pub_date,
-        title_display,
-        title_vern_display,
-        subject_facet,
-        subject_geo_facet,
-        subject_era_facet,
-        name_facet,
-        subtitle_display,
-        subtitle_vern_display,
-        url_fulltext_display,
-        url_suppl_display,
-        parent_unittitles_display,
-        heading_display,
-        unitdate_display,
-        collection_facet,
-        location_display,
-        accessrestrict_display,
-        accruals_display,
-        acqinfo_display,
-        altformavail_display,
-        appraisal_display,
-        arrangement_display,
-        custodhist_display,
-        fileplan_display,
-        originalsloc_display,
-        phystech_display,
-        processinfo_display,
-        relatedmaterial_display,
-        separatedmaterial_display,
-        scopecontent_display,
-        userestrict_display,
-        physdesc_display,
-        dimensions_display,
-        langmaterial_display,
-        note_display,
-        accession_display
+        accession_ssm,
+        accessrestrict_ssm,
+        accruals_ssm,
+        acqinfo_ssm,
+        altformavail_ssm,
+        appraisal_ssm,
+        arrangement_ssm,
+        author_ssm,
+        collection_ssm,
+        custodhist_ssm,
+        dimensions_ssm,
+        ead_ssi,
+        fileplan_ssm,
+        format_ssm,
+        heading_ssm,
+        innovative_ssm,
+        isbn_ssm,
+        langmaterial_ssm,
+        language_ssm,
+        lc_callnum_ssm,
+        location_ssm,
+        material_ssm,
+        name_ssm,
+        note_ssm,
+        oclc_ssm,
+        ohlink_text_ssm,
+        ohlink_url_ssm,
+        originalsloc_ssm,
+        parent_ssi,
+        parent_unittitles_ssm,
+        physdesc_ssm,
+        phystech_ssm,
+        processinfo_ssm,
+        pub_ssm,
+        publisher_ssm,
+        ref_ssi,
+        relatedmaterial_ssm,
+        resource_text_ssm,
+        resource_url_ssm,
+        scopecontent_ssm,
+        separatedmaterial_ssm,
+        shelf_ssm,
+        subject_ssm,
+        title_ssm,
+        unitdate_ssm,
+        url_fulltext_ssm,
+        url_suppl_ssm,
+        userestrict_ssm,
       </str>
 
       <str name="facet">true</str>
       <str name="facet.mincount">1</str>
       <str name="facet.limit">10</str>
-      <str name="facet.field">format</str>
-      <str name="facet.field">lc_1letter_facet</str>
-      <str name="facet.field">lc_alpha_facet</str>
-      <str name="facet.field">lc_b4cutter_facet</str>
-      <str name="facet.field">language_facet</str>
-      <str name="facet.field">pub_date</str>
-      <str name="facet.field">subject_era_facet</str>
-      <str name="facet.field">subject_geo_facet</str>
-      <str name="facet.field">subject_facet</str>
-      <str name="facet.field">name_facet</str>
+      <str name="facet.field">format_sim</str>
+      <str name="facet.field">language_sim</str>
+      <str name="facet.field">pub_sim</str>
+      <str name="facet.field">subject_sim</str>
+      <str name="facet.field">genre_sim</str>
+      <str name="facet.field">name_sim</str>
+      <str name="facet.field">contributors_sim</str>
+      <str name="facet.field">collection_sim</str>
+      <str name="facet.field">series_sim</str>
+      <str name="facet.field">pub_date_sim</str>
 
       <str name="spellcheck">true</str>
       <str name="spellcheck.dictionary">subject</str>
@@ -669,7 +606,7 @@
 
     <lst name="spellchecker">
       <str name="name">default</str>
-      <str name="field">spell</str>
+      <str name="field">text_spell</str>
       <str name="spellcheckIndexDir">./spell</str>
       <str name="buildOnOptimize">true</str>
     </lst>
@@ -1005,85 +942,6 @@
     </highlighting>
   </searchComponent>
 
-  <!-- Update Processors
-
-       Chains of Update Processor Factories for dealing with Update
-       Requests can be declared, and then used by name in Update
-       Request Processors
-
-       http://wiki.apache.org/solr/UpdateRequestProcessor
-
-    -->
-  <!-- Deduplication
-
-       An example dedup update processor that creates the "id" field
-       on the fly based on the hash code of some other fields.  This
-       example has overwriteDupes set to false since we are using the
-       id field as the signatureField and Solr will maintain
-       uniqueness based on that anyway.
-
-    -->
-  <!--
-     <updateRequestProcessorChain name="dedupe">
-       <processor class="solr.processor.SignatureUpdateProcessorFactory">
-         <bool name="enabled">true</bool>
-         <str name="signatureField">id</str>
-         <bool name="overwriteDupes">false</bool>
-         <str name="fields">name,features,cat</str>
-         <str name="signatureClass">solr.processor.Lookup3Signature</str>
-       </processor>
-       <processor class="solr.LogUpdateProcessorFactory" />
-       <processor class="solr.RunUpdateProcessorFactory" />
-     </updateRequestProcessorChain>
-    -->
-
-    <!--
-       This example update chain identifies the language of the incoming
-       documents using the langid contrib. The detected language is
-       written to field language_s. No field name mapping is done.
-       The fields used for detection are text, title, subject and description,
-       making this example suitable for detecting languages form full-text
-       rich documents injected via ExtractingRequestHandler.
-       See more about langId at http://wiki.apache.org/solr/LanguageDetection
-    -->
-    <!--
-     <updateRequestProcessorChain name="langid">
-       <processor class="org.apache.solr.update.processor.TikaLanguageIdentifierUpdateProcessorFactory">
-         <str name="langid.fl">text,title,subject,description</str>
-         <str name="langid.langField">language_s</str>
-         <str name="langid.fallback">en</str>
-       </processor>
-       <processor class="solr.LogUpdateProcessorFactory" />
-       <processor class="solr.RunUpdateProcessorFactory" />
-     </updateRequestProcessorChain>
-    -->
-
-  <!-- Response Writers
-
-       http://wiki.apache.org/solr/QueryResponseWriter
-
-       Request responses will be written using the writer specified by
-       the 'wt' request parameter matching the name of a registered
-       writer.
-
-       The "default" writer is the default and will be used if 'wt' is
-       not specified in the request.
-    -->
-  <!-- The following response writers are implicitly configured unless
-       overridden...
-    -->
-  <!--
-     <queryResponseWriter name="xml"
-                          default="true"
-                          class="solr.XMLResponseWriter" />
-     <queryResponseWriter name="json" class="solr.JSONResponseWriter"/>
-     <queryResponseWriter name="python" class="solr.PythonResponseWriter"/>
-     <queryResponseWriter name="ruby" class="solr.RubyResponseWriter"/>
-     <queryResponseWriter name="php" class="solr.PHPResponseWriter"/>
-     <queryResponseWriter name="phps" class="solr.PHPSerializedResponseWriter"/>
-     <queryResponseWriter name="csv" class="solr.CSVResponseWriter"/>
-    -->
-
   <queryResponseWriter name="json" class="solr.JSONResponseWriter">
      <!-- For the purposes of the tutorial, JSON responses are written as
       plain text so that they are easy to read in *any* browser.
@@ -1098,47 +956,14 @@
   <!-- XSLT response writer transforms the XML output by any xslt file found
        in Solr's conf/xslt directory.  Changes to xslt files are checked for
        every xsltCacheLifetimeSeconds.
-    -->
+  -->
   <queryResponseWriter name="xslt" class="solr.XSLTResponseWriter">
     <int name="xsltCacheLifetimeSeconds">5</int>
   </queryResponseWriter>
 
-  <!-- Query Parsers
-
-       http://wiki.apache.org/solr/SolrQuerySyntax
-
-       Multiple QParserPlugins can be registered by name, and then
-       used in either the "defType" param for the QueryComponent (used
-       by SearchHandler) or in LocalParams
-    -->
-  <!-- example of registering a query parser -->
-  <!--
-     <queryParser name="myparser" class="com.mycompany.MyQParserPlugin"/>
-    -->
-
-  <!-- Function Parsers
-
-       http://wiki.apache.org/solr/FunctionQuery
-
-       Multiple ValueSourceParsers can be registered by name, and then
-       used as function names when using the "func" QParser.
-    -->
-  <!-- example of registering a custom function parser  -->
-  <!--
-     <valueSourceParser name="myfunc"
-                        class="com.mycompany.MyValueSourceParser" />
-    -->
-
   <!-- Legacy config for the admin interface -->
   <admin>
     <defaultQuery>*:*</defaultQuery>
-
-    <!-- configure a healthcheck file for servers behind a
-         loadbalancer
-      -->
-    <!--
-       <healthcheck type="file">server-enabled</healthcheck>
-      -->
   </admin>
 
 </config>
