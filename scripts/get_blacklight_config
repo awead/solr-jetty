@@ -1,3 +1,0 @@
-#!/bin/bash
-/bin/cp ../catalog/solr/schema.xml solr/blacklight-dev-core/conf/schema.xml
-/bin/cp ../catalog/solr/solrconfig.xml solr/blacklight-dev-core/conf/solrconfig.xml
